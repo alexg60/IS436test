@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banana Council Headquarters</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Trebuchet MS', Arial, sans-serif;
+      background: linear-gradient(135deg, #fff4b8, #b8f7ff, #ffd1f2);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      margin-bottom: 10px;
+      color: #222;
+      text-shadow: 3px 3px 0 #fff;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .hero-box {
+      background: rgba(255,255,255,0.75);
+      border: 4px dashed #222;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .big-emoji {
+      font-size: 5rem;
+      margin: 10px 0 20px;
+      animation: wobble 1.8s infinite;
+      display: inline-block;
+    }
+
+    .btn-row {
+      margin-top: 25px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: #222;
+      color: white;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.08) rotate(-2deg);
+      background: #ff4fa3;
+    }
+
+    .grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.8);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      border: 3px solid rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .marquee-ish {
+      margin-top: 40px;
+      font-size: 1.1rem;
+      background: #111;
+      color: #fff;
+      padding: 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-ish span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: slide 11s linear infinite;
+    }
+
+    .floating {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.85;
+      animation: floaty 8s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    .f1 { top: 8%; left: 8%; }
+    .f2 { top: 18%; right: 10%; animation-delay: 1s; }
+    .f3 { bottom: 12%; left: 12%; animation-delay: 2s; }
+    .f4 { bottom: 20%; right: 8%; animation-delay: 3s; }
+
+    .counter-box {
+      margin-top: 35px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      padding: 20px;
+      border: 3px dotted #444;
+    }
+
+    #bananaCount {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ff8a00;
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-8deg) scale(1.05); }
+      50% { transform: rotate(8deg) scale(0.98); }
+      75% { transform: rotate(-4deg) scale(1.03); }
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(12deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating f1">🧀</div>
+  <div class="floating f2">🦆</div>
+  <div class="floating f3">🍕</div>
+  <div class="floating f4">🛼</div>
+
+  <div class="wrap">
+    <h1>Banana Council Headquarters</h1>
+    <p class="subtitle">A deeply important website about absolutely nothing.</p>
+
+    <div class="hero-box">
+      <div class="big-emoji">🍌👑</div>
+      <h2>Welcome, Honored Visitor of Weirdness</h2>
+      <p>
+        Please enjoy this page full of nonsense, dramatic confidence, and zero practical value.
+        The invisible committee has approved your entrance.
+      </p>
+
+      <div class="btn-row">
+        <button onclick="launchEmergencyDuck()">Emergency Duck</button>
+        <button onclick="complimentUser()">Receive Compliment</button>
+        <button onclick="increaseBananas()">Add Banana</button>
+      </div>
+    </div>
+
+    <div class="counter-box">
+      <p>Official Banana Count</p>
+      <div id="bananaCount">7</div>
+      <small>This number has no scientific backing.</small>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Department of Loud Sandwiches</h3>
+        <p>Currently investigating why toast sounds more dramatic when stared at intensely.</p>
+      </div>
+      <div class="card">
+        <h3>Ministry of Silly Walk Audits</h3>
+        <p>Every hallway strut is graded on bounce, confidence, and ankle mystery.</p>
+      </div>
+      <div class="card">
+        <h3>Committee for Unnecessary Buttons</h3>
+        <p>They don’t solve anything, but wow do they make people want to click them.</p>
+      </div>
+      <div class="card">
+        <h3>Strategic Pigeon Relations</h3>
+        <p>Negotiations remain tense. Breadcrumb diplomacy continues.</p>
+      </div>
+    </div>
+
+    <div class="marquee-ish">
+      <span>Breaking news: a spoon has been promoted to regional manager • The moon owes somebody five dollars • A hamster just became employee of the month • </span>
+    </div>
+  </div>
+
+  <script>
+    let bananas = 7;
+
+    function increaseBananas() {
+      bananas++;
+      document.getElementById('bananaCount').textContent = bananas;
+    }
+
+    function complimentUser() {
+      alert('You have the energy of someone who could win an argument with a raccoon. Impressive.');
+    }
+
+    function launchEmergencyDuck() {
+      alert('EMERGENCY DUCK DEPLOYED. Please remain calm and quack responsibly.');
+    }
+  </script>
+</body>
+</html>
