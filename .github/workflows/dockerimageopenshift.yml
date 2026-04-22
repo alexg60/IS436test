@@ -20,4 +20,6 @@ jobs:
         with:
           context: foosball/
           push: true
-          tags: alexg60/foosballopenshift:latest
+          tags: 
+            alexg60/foosballopenshift:latest
+            alexg60/foosballopenshift:${{ github.run_number }}
